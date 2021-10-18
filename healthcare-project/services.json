@@ -1,0 +1,50 @@
+[
+  {
+    "id": "001",
+    "name": "Blood Analisys",
+    "openDays": "Everyday",
+    "countDoctors": 4,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/1.jpg"
+  },
+  {
+    "id": "002",
+    "name": "Blood Analisys",
+    "openDays": "Everyday",
+    "countDoctors": 4,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/2.jpg"
+  },
+  {
+    "id": "003",
+    "name": "Blood Analisys",
+    "openDays": "Everyday",
+    "countDoctors": 4,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/3.jpg"
+  },
+  {
+    "id": "004",
+    "name": "Blood Analisys",
+    "openDays": "Everyday",
+    "countDoctors": 4,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/4.jpeg"
+  },
+  {
+    "id": "005",
+    "name": "Blood Analisyss",
+    "openDays": "Everyday",
+    "countDoctors": 5,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/5.jpg"
+  },
+  {
+    "id": "006",
+    "name": "Blood Analisys",
+    "openDays": "Everyday",
+    "countDoctors": 4,
+    "details": "We have Specialized doctors to anlalize your blood. You may have blood tests to keep track of how well you are managing a condition such as diabetes or high cholesterol.",
+    "pic": "https://raw.githubusercontent.com/arifulsajib/pictures-for-projects/main/kids/6.jpg"
+  }
+]
