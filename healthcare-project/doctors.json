@@ -1,7 +1,7 @@
 [
   {
     "id": "001",
-    "name": "Dr Mistry",
+    "name": "Dr Kishor",
     "categories": "Psychiatrists",
     "weekDays": "Sat-Sun",
     "time": "10AM-4PM",
@@ -10,7 +10,7 @@
   },
   {
     "id": "002",
-    "name": "Dr Brick Wall",
+    "name": "Dr Franklin",
     "categories": "gynecologists",
     "weekDays": "Mon-Fri",
     "time": "9AM-5PM",
@@ -19,7 +19,7 @@
   },
   {
     "id": "003",
-    "name": "Dr Ether",
+    "name": "Dr Aditi Roy",
     "categories": "Ophthalmologists",
     "weekDays": "Sun-Fri",
     "time": "11AM-5PM",
