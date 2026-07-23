@@ -31,7 +31,7 @@
 
           "shortDescription": "Force a boolean variable to TRUE.",
 
-          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
+          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking of apps.",
 
           "language": "Smali",
 
