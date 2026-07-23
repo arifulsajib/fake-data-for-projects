@@ -4,7 +4,7 @@
     "name": "Mod Helper",
     "version": "1.0.1",
     "build": 1,
-    "dataVersion": 3,
+    "dataVersion": 4,
     "lastUpdated": "2026-07-23"
   },
 
@@ -29,7 +29,7 @@
 
           "title": "Always True",
 
-          "shortDescription": "Force a boolean to TRUE.",
+          "shortDescription": "Force a boolean variable to TRUE.",
 
           "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
 
