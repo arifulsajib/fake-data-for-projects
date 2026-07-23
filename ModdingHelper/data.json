@@ -1,0 +1,399 @@
+{
+  "app": {
+    "id": "modhelper",
+    "name": "Mod Helper",
+    "version": "1.0.0",
+    "build": 1,
+    "author": "Sajib",
+    "lastUpdated": "2026-07-22"
+  },
+
+  "about": {
+    "description": "Offline Android Modding Reference.",
+    "github": "https://github.com/arifulsajib"
+  },
+
+  "categories": [
+    {
+      "id": "smali",
+      "order": 1,
+      "name": "Important Smali Codes",
+      "icon": "code",
+      "description": "Frequently used Smali instructions.",
+
+      "items": [
+        {
+          "id": "always_true",
+          "order": 1,
+          "type": "snippet",
+
+          "title": "Always True",
+
+          "shortDescription": "Force a boolean to TRUE.",
+
+          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
+
+          "language": "Smali",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "boolean",
+            "premium",
+            "bypass"
+          ],
+
+          "keywords": [
+            "true",
+            "const/4",
+            "premium"
+          ],
+
+          "notes": "Verify register before replacing.",
+
+          "code": "const/4 v0, 0x1"
+        }, 
+        {
+          "id": "always_false",
+          "order": 1,
+          "type": "snippet",
+
+          "title": "Always False",
+
+          "shortDescription": "Force a boolean to False.",
+
+          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
+
+          "language": "Smali",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "boolean",
+            "premium",
+            "bypass"
+          ],
+
+          "keywords": [
+            "false",
+            "const/4",
+            "premium"
+          ],
+
+          "notes": "Verify register before replacing.",
+
+          "code": "const/4 v0, 0x0"
+        }
+      ]
+    },
+
+    {
+      "id": "common_mods",
+      "order": 2,
+
+      "name": "Common Mods",
+
+      "icon": "patch",
+
+      "description": "Ready-made search and replace patches.",
+
+      "items": [
+        {
+          "id": "remove_ads",
+          "order": 1,
+
+          "type": "common_mod",
+
+          "title": "Remove Ads",
+
+          "shortDescription": "Disable ad loading.",
+
+          "description": "Replace the ad loading instruction with return-void.",
+
+          "language": "Smali",
+
+          "difficulty": "Medium",
+
+          "tags": [
+            "ads",
+            "patch"
+          ],
+
+          "keywords": [
+            "admob",
+            "loadAd"
+          ],
+
+          "notes": "Always backup before editing.",
+
+          "searchCode": "invoke-virtual {p0}, Lcom/google/android/gms/ads/AdView;->loadAd(Lcom/google/android/gms/ads/AdRequest;)V",
+
+          "replaceCode": "return-void"
+        }
+      ]
+    },
+
+    {
+      "id": "tools",
+      "order": 3,
+
+      "name": "Tools for Mod",
+
+      "icon": "tools",
+
+      "description": "Useful Android modding tools.",
+
+      "items": [
+        {
+          "id": "apktool",
+          "order": 1,
+
+          "type": "tool",
+
+          "title": "APKTool",
+
+          "shortDescription": "Decode and rebuild APKs.",
+
+          "description": "APKTool allows decoding Android resources and rebuilding APKs.",
+
+          "website": "https://ibotpeaches.github.io/Apktool",
+
+          "language": "Command",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "apktool"
+          ],
+
+          "keywords": [
+            "decode",
+            "apk"
+          ],
+
+          "notes": "Requires Java.",
+
+          "example": "apktool d app.apk"
+        }
+      ]
+    },
+
+    {
+      "id": "converter",
+      "order": 4,
+
+      "name": "Converter",
+
+      "icon": "convert",
+
+      "description": "Interactive conversion tools.",
+
+      "items": [
+        {
+          "id": "dec_hex",
+          "order": 1,
+
+          "type": "converter",
+
+          "title": "Decimal → Hex",
+
+          "shortDescription": "Convert decimal number to hexadecimal.",
+
+          "converterType": "dec_hex",
+
+          "inputHint": "Enter Decimal",
+
+          "outputHint": "Hex Result"
+        }, 
+        {
+          "id": "hex_dec",
+          "order": 2,
+          "type": "converter",
+          "title": "Hex → Decimal",
+          "shortDescription": "Convert hexadecimal to decimal.",
+          "converterType": "hex_dec",
+          "inputHint": "Enter Hex",
+          "outputHint": "Decimal Result"
+        },
+        {
+          "id": "base64_encode",
+          "order": 3,
+          "type": "converter",
+          "title": "Base64 Encode",
+          "shortDescription": "Encode text into Base64.",
+          "converterType": "base64_encode",
+          "inputHint": "Enter Text",
+          "outputHint": "Base64 Result"
+        },
+        {
+          "id": "base64_decode",
+          "order": 4,
+          "type": "converter",
+          "title": "Base64 Decode",
+          "shortDescription": "Decode Base64 into text.",
+          "converterType": "base64_decode",
+          "inputHint": "Enter Base64",
+          "outputHint": "Decoded Text"
+        },
+        {
+          "id": "string_hex",
+          "order": 5,
+          "type": "converter",
+          "title": "String → Hex",
+          "shortDescription": "Convert text to hexadecimal.",
+          "converterType": "string_hex",
+          "inputHint": "Enter Text",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_string",
+          "order": 6,
+          "type": "converter",
+          "title": "Hex → String",
+          "shortDescription": "Convert hexadecimal to text.",
+          "converterType": "hex_string",
+          "inputHint": "Enter Hex",
+          "outputHint": "Text Result"
+        },
+        {
+          "id": "binary_hex",
+          "order": 7,
+          "type": "converter",
+          "title": "Binary → Hex",
+          "shortDescription": "Convert binary to hexadecimal.",
+          "converterType": "binary_hex",
+          "inputHint": "Enter Binary",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_binary",
+          "order": 8,
+          "type": "converter",
+          "title": "Hex → Binary",
+          "shortDescription": "Convert hexadecimal to binary.",
+          "converterType": "hex_binary",
+          "inputHint": "Enter Hex",
+          "outputHint": "Binary Result"
+        },
+        {
+          "id": "ascii_hex",
+          "order": 9,
+          "type": "converter",
+          "title": "ASCII → Hex",
+          "shortDescription": "Convert ASCII text to hexadecimal.",
+          "converterType": "ascii_hex",
+          "inputHint": "Enter ASCII",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_ascii",
+          "order": 10,
+          "type": "converter",
+          "title": "Hex → ASCII",
+          "shortDescription": "Convert hexadecimal to ASCII text.",
+          "converterType": "hex_ascii",
+          "inputHint": "Enter Hex",
+          "outputHint": "ASCII Result"
+        },
+        {
+          "id": "url_encode",
+          "order": 11,
+          "type": "converter",
+          "title": "URL Encode",
+          "shortDescription": "Encode text for URLs.",
+          "converterType": "url_encode",
+          "inputHint": "Enter Text",
+          "outputHint": "Encoded URL"
+        },
+        {
+          "id": "url_decode",
+          "order": 12,
+          "type": "converter",
+          "title": "URL Decode",
+          "shortDescription": "Decode URL encoded text.",
+          "converterType": "url_decode",
+          "inputHint": "Enter Encoded URL",
+          "outputHint": "Decoded Text"
+        },
+        {
+          "id": "uppercase",
+          "order": 13,
+          "type": "converter",
+          "title": "Uppercase",
+          "shortDescription": "Convert text to uppercase.",
+          "converterType": "uppercase",
+          "inputHint": "Enter Text",
+          "outputHint": "Uppercase Text"
+        },
+        {
+          "id": "lowercase",
+          "order": 14,
+          "type": "converter",
+          "title": "Lowercase",
+          "shortDescription": "Convert text to lowercase.",
+          "converterType": "lowercase",
+          "inputHint": "Enter Text",
+          "outputHint": "Lowercase Text"
+        },
+        {
+          "id": "reverse_text",
+          "order": 15,
+          "type": "converter",
+          "title": "Reverse Text",
+          "shortDescription": "Reverse the input text.",
+          "converterType": "reverse_text",
+          "inputHint": "Enter Text",
+          "outputHint": "Reversed Text"
+        }
+        
+      ]
+    },
+
+    {
+      "id": "keywords",
+      "order": 5,
+    
+      "name": "App Keywords",
+    
+      "icon": "keyword",
+    
+      "description": "Useful app-specific modding keywords.",
+    
+      "items": [
+        {
+          "id": "remini_premium",
+          "order": 1,
+        
+          "type": "keyword",
+        
+          "title": "Remini Premium",
+        
+          "shortDescription": "Premium unlock guide",
+        
+          "appVersion": "3.7.1333.202521291",
+        
+          "originalApkUrl": "",
+        
+          "modApkUrl": "",
+        
+          "keyword": "isfreeuser",
+        
+          "findCode": "check-cast v12, Ljava/lang/Boolean;",
+        
+          "replaceCode": "sget-object v12, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;",
+        
+          "steps": [
+            "Open the APK in MT Manager.",
+            "Search the keyword.",
+            "Replace the code.",
+            "Save and sign."
+          ],
+        
+          "videoUrl": "https://youtu.be/qB7zd7Dt1H8",
+        
+          "notes": "Always backup the original APK."
+        }
+      ]
+    }
+  ]
+}
