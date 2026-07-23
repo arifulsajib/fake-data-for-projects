@@ -4,12 +4,12 @@
     "name": "Mod Helper",
     "version": "1.0.0",
     "build": 1,
-    "dataVersion": 1,
+    "dataVersion": 2,
     "lastUpdated": "2026-07-23"
   },
 
   "about": {
-    "description": "Offline Android Modding Reference.",
+    "description": "Offline Android Modding Reference for easy Modding",
     "github": "https://github.com/arifulsajib"
   },
 
