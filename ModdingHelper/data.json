@@ -2,7 +2,7 @@
   "app": {
     "id": "modhelper",
     "name": "Mod Helper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "build": 1,
     "dataVersion": 2,
     "lastUpdated": "2026-07-23"
