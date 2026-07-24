@@ -2,15 +2,15 @@
   "app": {
     "id": "modhelper",
     "name": "Mod Helper",
-    "version": "1.0.1",
+    "version": "1.0.0",
+    "dataVersion": 5,
     "build": 1,
-    "author": "Sajib", 
-    "dataVersion": 4,
-    "lastUpdated": "2026-07-23"
+    "author": "Sajib",
+    "lastUpdated": "2026-07-22"
   },
 
   "about": {
-    "description": "Offline Android Modding Reference for easy Modding",
+    "description": "Offline Android Modding Reference.",
     "linkedIn": "https://linkedin.com/in/arifulsajib"
   },
 
@@ -30,11 +30,822 @@
 
           "title": "Always True",
 
-          "shortDescription": "Force a boolean variable to TRUE.",
+          "shortDescription": "Force a boolean to TRUE.",
 
-          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking of apps.",
+          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
 
           "language": "Smali",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "boolean",
+            "premium",
+            "bypass"
+          ],
+
+          "keywords": [
+            "true",
+            "const/4",
+            "premium"
+          ],
+
+          "notes": "Verify register before replacing.",
+
+          "code": "const/4 v0, 0x1"
+        }, 
+        {
+          "id": "always_false",
+          "order": 2,
+          "type": "snippet",
+
+          "title": "Always False",
+
+          "shortDescription": "Force a boolean to False.",
+
+          "description": "Useful for bypassing boolean checks such as premium verification or feature unlocking.",
+
+          "language": "Smali",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "boolean",
+            "premium",
+            "bypass"
+          ],
+
+          "keywords": [
+            "false",
+            "const/4",
+            "premium"
+          ],
+
+          "notes": "Verify register before replacing.",
+
+          "code": "const/4 v0, 0x0"
+        },
+        {
+          "id": "return_void",
+          "order": 3,
+          "type": "snippet",
+          "title": "Return Void",
+          "shortDescription": "Exit a void method immediately.",
+          "description": "Returns from a method with no return value.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["return", "method"],
+          "keywords": ["return-void", "exit"],
+          "notes": "Only for void methods.",
+          "code": "return-void"
+        },
+        {
+          "id": "return_true",
+          "order": 4,
+          "type": "snippet",
+          "title": "Return True",
+          "shortDescription": "Return boolean TRUE.",
+          "description": "Returns true from a boolean method.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["boolean", "return"],
+          "keywords": ["true", "return"],
+          "notes": "Use in boolean methods.",
+          "code": "const/4 v0, 0x1\nreturn v0"
+        },
+        {
+          "id": "return_false",
+          "order": 5,
+          "type": "snippet",
+          "title": "Return False",
+          "shortDescription": "Return boolean FALSE.",
+          "description": "Returns false from a boolean method.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["boolean", "return"],
+          "keywords": ["false", "return"],
+          "notes": "Use in boolean methods.",
+          "code": "const/4 v0, 0x0\nreturn v0"
+        },
+        {
+          "id": "const_string",
+          "order": 6,
+          "type": "snippet",
+          "title": "Load String",
+          "shortDescription": "Load a string constant.",
+          "description": "Stores a string into a register.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["string"],
+          "keywords": ["const-string", "text"],
+          "notes": "Useful for displaying or comparing strings.",
+          "code": "const-string v0, \"Hello World\""
+        },
+        {
+          "id": "const_number",
+          "order": 7,
+          "type": "snippet",
+          "title": "Load Integer",
+          "shortDescription": "Load an integer constant.",
+          "description": "Stores an integer value in a register.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["integer"],
+          "keywords": ["const", "number"],
+          "notes": "Use const/16 for larger values.",
+          "code": "const/4 v0, 0x5"
+        },
+        {
+          "id": "move_result",
+          "order": 8,
+          "type": "snippet",
+          "title": "Move Result",
+          "shortDescription": "Store a method result.",
+          "description": "Gets the value returned by the previous method call.",
+          "language": "Smali",
+          "difficulty": "Medium",
+          "tags": ["invoke"],
+          "keywords": ["move-result"],
+          "notes": "Must follow invoke-*.",
+          "code": "invoke-virtual {p0}, Ljava/lang/String;->length()I\nmove-result v0"
+        },
+        {
+          "id": "new_instance",
+          "order": 9,
+          "type": "snippet",
+          "title": "Create Object",
+          "shortDescription": "Create a new object.",
+          "description": "Allocates memory and calls the constructor.",
+          "language": "Smali",
+          "difficulty": "Medium",
+          "tags": ["object"],
+          "keywords": ["new-instance"],
+          "notes": "Always call invoke-direct after new-instance.",
+          "code": "new-instance v0, Ljava/lang/StringBuilder;\ninvoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V"
+        },
+        {
+          "id": "if_equal",
+          "order": 10,
+          "type": "snippet",
+          "title": "If Equal",
+          "shortDescription": "Compare two registers.",
+          "description": "Jump to a label if values are equal.",
+          "language": "Smali",
+          "difficulty": "Medium",
+          "tags": ["branch"],
+          "keywords": ["if-eq"],
+          "notes": "Label must exist.",
+          "code": "if-eq v0, v1, :label_true"
+        },
+        {
+          "id": "goto_label",
+          "order": 11,
+          "type": "snippet",
+          "title": "Goto",
+          "shortDescription": "Jump to another label.",
+          "description": "Transfers execution to another point in the method.",
+          "language": "Smali",
+          "difficulty": "Easy",
+          "tags": ["jump"],
+          "keywords": ["goto"],
+          "notes": "Useful for loops and conditions.",
+          "code": "goto :next"
+        },
+        {
+          "id": "invoke_virtual",
+          "order": 12,
+          "type": "snippet",
+          "title": "Invoke Virtual",
+          "shortDescription": "Call an object method.",
+          "description": "Invokes a virtual method on an object.",
+          "language": "Smali",
+          "difficulty": "Medium",
+          "tags": ["method"],
+          "keywords": ["invoke-virtual"],
+          "notes": "Use move-result if a value is returned.",
+          "code": "invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;"
+        }
+      ]
+    },
+
+    {
+      "id": "common_mods",
+      "order": 2,
+
+      "name": "Common Mods",
+
+      "icon": "patch",
+
+      "description": "Ready-made search and replace patches.",
+
+      "items": [
+        {
+          "id": "remove_ads",
+          "order": 1,
+
+          "type": "common_mod",
+
+          "title": "Remove Ads",
+
+          "shortDescription": "Disable ad loading.",
+
+          "description": "Replace the ad loading instruction with return-void.",
+
+          "language": "Smali",
+
+          "difficulty": "Medium",
+
+          "tags": [
+            "ads",
+            "patch"
+          ],
+
+          "keywords": [
+            "admob",
+            "loadAd"
+          ],
+
+          "notes": "Always backup before editing.",
+
+          "searchCode": "invoke-virtual {p0}, Lcom/google/android/gms/ads/AdView;->loadAd(Lcom/google/android/gms/ads/AdRequest;)V",
+
+          "replaceCode": "return-void"
+        }, 
+        {
+          "id": "remove_country_restrictions_1",
+          "order": 2,
+          "type": "common_mod",
+          "title": "Remove Country Restrictions (Regex 1)",
+          "shortDescription": "Replace network operator name with T-Mobile.",
+          "description": "Overrides the returned network operator name to bypass region checks.",
+          "language": "Regex / Smali",
+          "difficulty": "Medium",
+          "tags": [
+            "country",
+            "region",
+            "regex"
+          ],
+          "keywords": [
+            "getNetworkOperatorName",
+            "getSimOperatorName",
+            "T-Mobile"
+          ],
+          "notes": "Create a backup before applying.",
+          "searchCode": "(getNetworkOperatorName|getSimOperatorName).+Ljava.lang.String;\\n\\n\\s{4}move-result-object ([vlp]\\d+)",
+          "replaceCode": "$1()Ljava/lang/String;\\n\\n\\ \\ \\ \\ const-string $2, \"T-Mobile\""
+        },
+        {
+          "id": "remove_country_restrictions_2",
+          "order": 3,
+          "type": "common_mod",
+          "title": "Remove Country Restrictions (Regex 2)",
+          "shortDescription": "Replace network operator code with 310160.",
+          "description": "Overrides the returned network operator code.",
+          "language": "Regex / Smali",
+          "difficulty": "Medium",
+          "tags": [
+            "country",
+            "region",
+            "regex"
+          ],
+          "keywords": [
+            "getSimOperator",
+            "getNetworkOperator",
+            "310160"
+          ],
+          "notes": "Create a backup before applying.",
+          "searchCode": "(getSimOperator|getNetworkOperator).+Ljava.lang.String;\\n\\n\\s{4}move-result-object ([vlp]\\d+)",
+          "replaceCode": "$1()Ljava/lang/String;\\n\\n\\ \\ \\ \\ const-string $2, \"310160\""
+        },
+        {
+          "id": "remove_country_restrictions_3",
+          "order": 4,
+          "type": "common_mod",
+          "title": "Remove Country Restrictions (Regex 3)",
+          "shortDescription": "Replace country ISO with us.",
+          "description": "Overrides the returned country ISO code.",
+          "language": "Regex / Smali",
+          "difficulty": "Medium",
+          "tags": [
+            "country",
+            "region",
+            "regex"
+          ],
+          "keywords": [
+            "getSimCountryIso",
+            "getNetworkCountryIso",
+            "us"
+          ],
+          "notes": "Create a backup before applying.",
+          "searchCode": "(getSimCountryIso|getNetworkCountryIso).+Ljava.lang.String;\\n\\n\\s{4}move-result-object ([vlp]\\d+)",
+          "replaceCode": "$1()Ljava/lang/String;\\n\\n\\ \\ \\ \\ const-string $2, \"us\""
+        }
+        
+      ]
+    },
+
+    {
+      "id": "tools",
+      "order": 3,
+
+      "name": "Tools for Mod",
+
+      "icon": "tools",
+
+      "description": "Useful Android modding tools.",
+
+      "items": [
+        {
+          "id": "apktool",
+          "order": 1,
+
+          "type": "tool",
+
+          "title": "APKTool",
+
+          "shortDescription": "Decode and rebuild APKs.",
+
+          "description": "APKTool allows decoding Android resources and rebuilding APKs.",
+
+          "website": "https://ibotpeaches.github.io/Apktool",
+
+          "language": "Command",
+
+          "difficulty": "Easy",
+
+          "tags": [
+            "apktool"
+          ],
+
+          "keywords": [
+            "decode",
+            "apk"
+          ],
+
+          "notes": "Requires Java.",
+
+          "example": "apktool d app.apk"
+        },  
+        {
+          "id": "jadx",
+          "order": 2,
+          "type": "tool",
+          "title": "JADX",
+          "shortDescription": "Decompile APKs to Java source.",
+          "description": "JADX converts DEX files into readable Java code for analysis.",
+          "website": "https://github.com/skylot/jadx",
+          "language": "Command",
+          "difficulty": "Easy",
+          "tags": ["jadx", "decompiler"],
+          "keywords": ["java", "dex", "decompile"],
+          "notes": "Best used alongside APKTool.",
+          "example": "jadx-gui app.apk"
+        },
+        {
+          "id": "mt_manager",
+          "order": 3,
+          "type": "tool",
+          "title": "MT Manager",
+          "shortDescription": "Android file manager and APK editor.",
+          "description": "MT Manager provides APK editing, signing, file management and text editing directly on Android.",
+          "website": "https://mt2.cn/",
+          "language": "Android",
+          "difficulty": "Easy",
+          "tags": ["mt manager"],
+          "keywords": ["apk", "editor", "android"],
+          "notes": "Popular all-in-one Android tool.",
+          "example": "Open APK → View → Classes.dex"
+        },
+        {
+          "id": "apk_signer",
+          "order": 4,
+          "type": "tool",
+          "title": "APK Signer",
+          "shortDescription": "Sign rebuilt APK files.",
+          "description": "Signs APKs after rebuilding so they can be installed.",
+          "website": "",
+          "language": "Command",
+          "difficulty": "Easy",
+          "tags": ["sign"],
+          "keywords": ["apk", "sign"],
+          "notes": "Use your own keystore.",
+          "example": "apksigner sign app.apk"
+        },
+        {
+          "id": "adb",
+          "order": 5,
+          "type": "tool",
+          "title": "ADB",
+          "shortDescription": "Android Debug Bridge.",
+          "description": "ADB allows communication with Android devices from a computer.",
+          "website": "https://developer.android.com/tools/adb",
+          "language": "Command",
+          "difficulty": "Medium",
+          "tags": ["adb"],
+          "keywords": ["android", "debug"],
+          "notes": "Enable USB debugging first.",
+          "example": "adb devices"
+        },
+        {
+          "id": "dex2jar",
+          "order": 6,
+          "type": "tool",
+          "title": "Dex2Jar",
+          "shortDescription": "Convert DEX to JAR.",
+          "description": "Converts Android DEX files into Java JAR format.",
+          "website": "https://github.com/pxb1988/dex2jar",
+          "language": "Command",
+          "difficulty": "Easy",
+          "tags": ["dex2jar"],
+          "keywords": ["dex", "jar"],
+          "notes": "Useful with JD-GUI.",
+          "example": "d2j-dex2jar app.apk"
+        },
+        {
+          "id": "jd_gui",
+          "order": 7,
+          "type": "tool",
+          "title": "JD-GUI",
+          "shortDescription": "View Java source from JAR.",
+          "description": "JD-GUI decompiles Java class files inside JAR archives.",
+          "website": "https://java-decompiler.github.io/",
+          "language": "Desktop",
+          "difficulty": "Easy",
+          "tags": ["java"],
+          "keywords": ["jar", "decompiler"],
+          "notes": "Often used with Dex2Jar.",
+          "example": "Open classes.jar"
+        },
+        {
+          "id": "baksmali",
+          "order": 8,
+          "type": "tool",
+          "title": "Baksmali",
+          "shortDescription": "Disassemble DEX files.",
+          "description": "Converts DEX bytecode into Smali files.",
+          "website": "https://github.com/JesusFreke/smali",
+          "language": "Command",
+          "difficulty": "Medium",
+          "tags": ["smali"],
+          "keywords": ["baksmali", "dex"],
+          "notes": "Official Smali disassembler.",
+          "example": "baksmali disassemble classes.dex"
+        },
+        {
+          "id": "smali",
+          "order": 9,
+          "type": "tool",
+          "title": "Smali",
+          "shortDescription": "Assemble Smali code.",
+          "description": "Compiles Smali source files back into DEX format.",
+          "website": "https://github.com/JesusFreke/smali",
+          "language": "Command",
+          "difficulty": "Medium",
+          "tags": ["smali"],
+          "keywords": ["assemble", "dex"],
+          "notes": "Companion tool to Baksmali.",
+          "example": "smali assemble out/"
+        },
+        {
+          "id": "android_studio",
+          "order": 10,
+          "type": "tool",
+          "title": "Android Studio",
+          "shortDescription": "Official Android IDE.",
+          "description": "Android Studio provides development, debugging and APK analysis tools.",
+          "website": "https://developer.android.com/studio",
+          "language": "Desktop",
+          "difficulty": "Easy",
+          "tags": ["android"],
+          "keywords": ["ide", "studio"],
+          "notes": "Includes APK Analyzer.",
+          "example": "Build → Analyze APK"
+        },
+        {
+          "id": "termux",
+          "order": 11,
+          "type": "tool",
+          "title": "Termux",
+          "shortDescription": "Linux terminal for Android.",
+          "description": "Termux provides a Linux environment on Android for development and command-line tools.",
+          "website": "https://termux.dev/",
+          "language": "Android",
+          "difficulty": "Easy",
+          "tags": ["terminal"],
+          "keywords": ["linux", "shell"],
+          "notes": "Supports Git, Java, Python and many packages.",
+          "example": "pkg update"
+        }
+        
+      ]
+    },
+
+    {
+      "id": "converter",
+      "order": 4,
+
+      "name": "Converter",
+
+      "icon": "convert",
+
+      "description": "Interactive conversion tools.",
+
+      "items": [
+        {
+          "id": "dec_hex",
+          "order": 1,
+
+          "type": "converter",
+
+          "title": "Decimal → Hex",
+
+          "shortDescription": "Convert decimal number to hexadecimal.",
+
+          "converterType": "dec_hex",
+
+          "inputHint": "Enter Decimal",
+
+          "outputHint": "Hex Result"
+        }, 
+        {
+          "id": "hex_dec",
+          "order": 2,
+          "type": "converter",
+          "title": "Hex → Decimal",
+          "shortDescription": "Convert hexadecimal to decimal.",
+          "converterType": "hex_dec",
+          "inputHint": "Enter Hex",
+          "outputHint": "Decimal Result"
+        },
+        {
+          "id": "base64_encode",
+          "order": 3,
+          "type": "converter",
+          "title": "Base64 Encode",
+          "shortDescription": "Encode text into Base64.",
+          "converterType": "base64_encode",
+          "inputHint": "Enter Text",
+          "outputHint": "Base64 Result"
+        },
+        {
+          "id": "base64_decode",
+          "order": 4,
+          "type": "converter",
+          "title": "Base64 Decode",
+          "shortDescription": "Decode Base64 into text.",
+          "converterType": "base64_decode",
+          "inputHint": "Enter Base64",
+          "outputHint": "Decoded Text"
+        },
+        {
+          "id": "string_hex",
+          "order": 5,
+          "type": "converter",
+          "title": "String → Hex",
+          "shortDescription": "Convert text to hexadecimal.",
+          "converterType": "string_hex",
+          "inputHint": "Enter Text",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_string",
+          "order": 6,
+          "type": "converter",
+          "title": "Hex → String",
+          "shortDescription": "Convert hexadecimal to text.",
+          "converterType": "hex_string",
+          "inputHint": "Enter Hex",
+          "outputHint": "Text Result"
+        },
+        {
+          "id": "binary_hex",
+          "order": 7,
+          "type": "converter",
+          "title": "Binary → Hex",
+          "shortDescription": "Convert binary to hexadecimal.",
+          "converterType": "binary_hex",
+          "inputHint": "Enter Binary",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_binary",
+          "order": 8,
+          "type": "converter",
+          "title": "Hex → Binary",
+          "shortDescription": "Convert hexadecimal to binary.",
+          "converterType": "hex_binary",
+          "inputHint": "Enter Hex",
+          "outputHint": "Binary Result"
+        },
+        {
+          "id": "ascii_hex",
+          "order": 9,
+          "type": "converter",
+          "title": "ASCII → Hex",
+          "shortDescription": "Convert ASCII text to hexadecimal.",
+          "converterType": "ascii_hex",
+          "inputHint": "Enter ASCII",
+          "outputHint": "Hex Result"
+        },
+        {
+          "id": "hex_ascii",
+          "order": 10,
+          "type": "converter",
+          "title": "Hex → ASCII",
+          "shortDescription": "Convert hexadecimal to ASCII text.",
+          "converterType": "hex_ascii",
+          "inputHint": "Enter Hex",
+          "outputHint": "ASCII Result"
+        },
+        {
+          "id": "url_encode",
+          "order": 11,
+          "type": "converter",
+          "title": "URL Encode",
+          "shortDescription": "Encode text for URLs.",
+          "converterType": "url_encode",
+          "inputHint": "Enter Text",
+          "outputHint": "Encoded URL"
+        },
+        {
+          "id": "url_decode",
+          "order": 12,
+          "type": "converter",
+          "title": "URL Decode",
+          "shortDescription": "Decode URL encoded text.",
+          "converterType": "url_decode",
+          "inputHint": "Enter Encoded URL",
+          "outputHint": "Decoded Text"
+        },
+        {
+          "id": "uppercase",
+          "order": 13,
+          "type": "converter",
+          "title": "Uppercase",
+          "shortDescription": "Convert text to uppercase.",
+          "converterType": "uppercase",
+          "inputHint": "Enter Text",
+          "outputHint": "Uppercase Text"
+        },
+        {
+          "id": "lowercase",
+          "order": 14,
+          "type": "converter",
+          "title": "Lowercase",
+          "shortDescription": "Convert text to lowercase.",
+          "converterType": "lowercase",
+          "inputHint": "Enter Text",
+          "outputHint": "Lowercase Text"
+        },
+        {
+          "id": "reverse_text",
+          "order": 15,
+          "type": "converter",
+          "title": "Reverse Text",
+          "shortDescription": "Reverse the input text.",
+          "converterType": "reverse_text",
+          "inputHint": "Enter Text",
+          "outputHint": "Reversed Text"
+        }
+        
+      ]
+    },
+
+    {
+      "id": "keywords",
+      "order": 5,
+    
+      "name": "App Keywords",
+    
+      "icon": "keyword",
+    
+      "description": "Useful app-specific modding keywords.",
+    
+      "items": [
+        {
+          "id": "remini_premium",
+          "order": 1,
+          "type": "keyword",
+        
+          "title": "Remini Premium",
+        
+          "shortDescription": "Premium unlock reference.",
+        
+          "appVersion": "3.7.1333.202521291",
+        
+          "originalApkUrl": "",
+        
+          "modApkUrl": "",
+        
+          "keyword": "isfreeuser",
+        
+          "className": "",
+        
+          "patches": [
+            {
+              "method": "",
+              "findCode": "check-cast v12, Ljava/lang/Boolean;",
+              "replaceCode": "sget-object v12, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;"
+            }
+          ],
+        
+          "steps": [
+            "Open the APK in MT Manager.",
+            "Search for the keyword.",
+            "Open the matching class.",
+            "Locate the target code.",
+            "Replace the code.",
+            "Save and sign the APK."
+          ],
+        
+          "videoUrl": "https://youtu.be/qB7zd7Dt1H8",
+        
+          "notes": "Always backup the original APK before making changes."
+        }, 
+        {
+          "id": "moviebox_premium",
+          "order": 2,
+          "type": "keyword",
+        
+          "title": "MovieBox Premium",
+        
+          "shortDescription": "Premium reference for version 3.0.14.042.",
+        
+          "appVersion": "3.0.14.042",
+        
+          "originalApkUrl": "",
+        
+          "modApkUrl": "",
+        
+          "keyword": "memberinfo",
+        
+          "className": "memberinfo",
+        
+          "patches": [
+            {
+              "method": "getDaysLeft",
+              "findCode": "",
+              "replaceCode": "const/16 v0, 0x3e8\ninvoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;\nmove-result-object v0"
+            },
+            {
+              "method": "getDurationType",
+              "findCode": "",
+              "replaceCode": "const/16 v0, 0x3e8"
+            },
+            {
+              "method": "getExpiryDate",
+              "findCode": "",
+              "replaceCode": "const-string v0, \"2099-12-31\""
+            },
+            {
+              "method": "getMemberType",
+              "findCode": "",
+              "replaceCode": "const/4 v0, 0x1"
+            },
+            {
+              "method": "isActive",
+              "findCode": "",
+              "replaceCode": "const/4 v0, 0x1"
+            },
+            {
+              "method": "isPassed",
+              "findCode": "",
+              "replaceCode": "const/4 v0, 0x1\ninvoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;\nmove-result-object v0"
+            },
+            {
+              "method": "setVipEnable",
+              "findCode": "",
+              "replaceCode": "const/4 v0, 0x1\ninvoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;\nmove-result-object v0"
+            },
+            {
+              "method": "setVipPayEnable",
+              "findCode": "",
+              "replaceCode": "const/4 v0, 0x1\ninvoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;\nmove-result-object v0"
+            },
+            {
+              "method": "getMultiDownloadLimit",
+              "findCode": "",
+              "replaceCode": "const/16 v0, 0x3e7\ninvoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;\nmove-result-object v0"
+            }
+          ],
+        
+          "steps": [
+            "Open the APK in MT Manager.",
+            "Navigate to the target class.",
+            "Open the corresponding method.",
+            "Replace the method body as documented.",
+            "Save the changes.",
+            "Rebuild and sign the APK."
+          ],
+        
+          "videoUrl": "https://youtu.be/qB7zd7Dt1H8",
+        
+          "notes": "Always keep a backup of the original APK before making changes."
+        }
+      ]
+    }
+  ]
+}          "language": "Smali",
 
           "difficulty": "Easy",
 
